@@ -28,3 +28,5 @@ class Project {
         this.todos.splice(i, 1);
     }
 }
+
+export {Todo, Project};
