@@ -14,14 +14,24 @@ export default function pageLoad() {
     generalTab.classList.add("general");
     generalTab.textContent = "General";
 
+    const dropAdd = document.createElement("div");
+    dropAdd.classList.add("dropAdd");
+    
     const projects = document.createElement("select");
     projects.classList.add("projectSelect");
     const noProjects = document.createElement("option");
     noProjects.textContent = "No Projects";
     projects.append(noProjects);
 
+    const addButton = document.createElement("button");
+    addButton.classList.add("addButton");
+    addButton.textContent = "+";
+
+    dropAdd.append(projects);
+    dropAdd.append(addButton);
+
     sideBar.append(generalTab);
-    sideBar.append(projects);
+    sideBar.append(dropAdd);
 
     body.append(sideBar);
     body.append(mainSpace);
