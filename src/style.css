@@ -1,3 +1,22 @@
 body {
     background-color: rgb(68, 68, 68);
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr 5fr;
+    width: 99vw;
+    height: 98vh;
 }
+
+.sideBar {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(34, 34, 34);
+    align-items: center;
+}
+
+.projectSelect, .general {
+    width: 150px;
+    padding: 10px 20px;
+    margin: 10px;
+}
+
