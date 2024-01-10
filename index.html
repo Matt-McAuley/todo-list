@@ -17,7 +17,30 @@
         </div>
     </div>
     <div class="main">
-        <button>Add Todo</button>
+        <button class="todoButton">Add Todo</button>
+        <div class="todoPopup">
+            <label for="title">Title:
+                <input type="text" id="title">
+            </label>
+            <label for="description">Description:
+                <input type="text" id="description">
+            </label>
+            <label for="dueDate">Due Date:
+                <input type="date" id="dueDate">
+            </label>
+            <label for="priority">Priority:
+                <select id="priority">
+                    <option value="low">Low</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="high">High</option>
+                </select>
+            </label>
+        </div>
+        <div class="projectPopup">
+            <label for="title">Title:
+                <input type="text" id="title">
+            </label>
+        </div>
     </div>
 </body>
 </html>
