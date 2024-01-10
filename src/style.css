@@ -27,5 +27,26 @@ body {
 .main {
     display: flex;
     justify-content: center;
-    align-items: start;
+}
+
+.todoButton {
+    align-self: start;
+    padding: 10px 20px;
+}
+
+.todoPopup , .projectPopup{
+    position: absolute;
+    align-self: center;
+    border: 1px solid black;
+    background-color: gray;
+    padding: 30px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    opacity: 0%;
+}
+
+.todoPopup:active, .projectPopup:active {
+    opacity: 100%;
 }

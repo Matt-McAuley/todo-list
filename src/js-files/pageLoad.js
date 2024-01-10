@@ -46,6 +46,6 @@ export default function pageLoad() {
     // todoArea.classList.add("todoArea");
     // mainSpace.appendChild(todoArea);
 
-    //Create invisible project and todo popups
-    
+    //Add event listeners to buttons
+
 }
