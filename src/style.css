@@ -30,20 +30,31 @@ button, select, input, select {
     border-radius: 20px;
     font-weight: 600;
     cursor: pointer;
+    padding: 5px;
 }
 
 button:hover, select:hover, input:hover {
-    background-color: rgb(19, 19, 19);
+    background-color: rgb(37, 32, 32);
+}
+
+input[type=date]:hover {
+    background-color: rgb(66, 57, 57)
+}
+
+button:active {
+    translate: 1px 1px;
 }
 
 button:disabled, select:disabled {
     cursor: initial;
     opacity: 50%;
     background-color: black;
+    translate: 0px 0px;
 }
 
-button:active {
-    translate: 1px 1px;
+div.disabled {
+    cursor: initial;
+    opacity: 50%;
 }
 
 label {
@@ -156,4 +167,15 @@ label {
 
 .editButton, .completeButton {
     padding: 10px;
+}
+
+.todoPopupButtons, .projectPopupButtons {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.todoSubmit, .projectSubmit, .cancel {
+    font-size: 15px;
+    padding: 5px 8px;
 }

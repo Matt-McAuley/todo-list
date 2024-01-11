@@ -1,5 +1,5 @@
 import { Todo, Project } from "./js-files/classes";
-import {pageLoad, createTodoPopup, removePopup} from "./js-files/pageLoad";
+import {pageLoad, createPopup, removePopup} from "./js-files/pageLoad";
 import './style.css';
 import {format} from "date-fns";
 
@@ -101,7 +101,8 @@ function displayAllTodos(project) {
         });
 
         editButton.addEventListener('click', () => {
-            createTodoPopup();
+            todoPopup.classList.add('active');
+            createPopup();
             todoTitle.value = todo.title;
             todoDescription.value = todo.description;
             todoDueDate.value = format(todo.dueDate, 'yyyy-MM-dd');
