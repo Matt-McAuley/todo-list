@@ -4,6 +4,8 @@ import './style.css';
 
 pageLoad();
 
+let general = new Project('General');
+
 function displayTodos(project) {
     todoArea = document.querySelector(".todoArea");
     for (todo in project.todos) {
@@ -12,9 +14,4 @@ function displayTodos(project) {
         todoButton.textContent = todo.title;
         todoArea.append(todoButton);
     }
-}
-
-function createTodo(title, description, dueDate, priority, project) {
-    todo = new Todo(title, description, dueDate, priority);
-    project.addTodo(todo);
 }

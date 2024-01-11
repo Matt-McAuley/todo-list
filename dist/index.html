@@ -18,29 +18,37 @@
     </div>
     <div class="main">
         <button class="todoButton">Add Todo</button>
-        <div class="todoPopup">
-            <label for="title">Title:
-                <input type="text" id="title">
+        <form class="todoPopup">
+            <label for="todoTitle">Title:
+                <input type="text" id="todoTitle" placeholder="New Todo" required>
             </label>
             <label for="description">Description:
-                <input type="text" id="description">
+                <input type="text" id="description" required>
             </label>
             <label for="dueDate">Due Date:
-                <input type="date" id="dueDate">
+                <input type="date" id="dueDate" required>
             </label>
             <label for="priority">Priority:
-                <select id="priority">
+                <select id="priority" required>
                     <option value="low">Low</option>
                     <option value="medium" selected>Medium</option>
                     <option value="high">High</option>
                 </select>
             </label>
-        </div>
-        <div class="projectPopup">
-            <label for="title">Title:
-                <input type="text" id="title">
+            <div class="todoPopupButtons">
+                <button class="todoSubmit" type="submit">Submit</button>
+                <button class="cancel">Cancel</button>
+            </div>
+        </form>
+        <form class="projectPopup">
+            <label for="projectTitle">Title:
+                <input type="text" id="projectTitle" placeholder="New Project" required>
             </label>
-        </div>
+            <div class="projectPopupButtons">
+                <button class="projectSubmit" type="submit">Submit</button>
+                <button class="cancel">Cancel</button>
+            </div>
+        </form>
     </div>
 </body>
 </html>

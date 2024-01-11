@@ -1,51 +1,66 @@
 import { Project } from "./classes";
 
 export default function pageLoad() {
-    // Create general page layout upon being loaded
-    // const body = document.querySelector("body");
+    //Gather all buttons/form items
+    const generalButton = document.querySelector(".general");
+    const addProject = document.querySelector(".addButton");
+    const addTodo = document.querySelector(".todoButton");
+    const cancelButtons = document.querySelectorAll(".cancel");
+    const todoSubmit = document.querySelector(".todoSubmit");
+    const projectSubmit = document.querySelector(".projectSubmit");
+    const projectDropdown = document.querySelector(".projectSelect");
+    const todoPopup = document.querySelector(".todoPopup");
+    const projectPopup = document.querySelector(".projectPopup");
 
-    // const sideBar = document.createElement("div");
-    // sideBar.classList.add("sideBar");
+    const todoTitle = document.querySelector("#todoTitle");
+    const todoDescription = document.querySelector("#description");
+    const todoDueDate = document.querySelector("#dueDate");
+    const todoPriority = document.querySelector("#priority");
 
-    // const mainSpace = document.createElement("div");
-    // mainSpace.classList.add("main");
+    const projectTitle = document.querySelector("#projectTitle");
 
-    // let general = new Project("General");
-    // const generalTab = document.createElement("button");
-    // generalTab.classList.add("general");
-    // generalTab.textContent = "General";
+    //Add necessary event listeners
+    addTodo.addEventListener('click', () => {
+        todoPopup.classList.add('active');
 
-    // const dropAdd = document.createElement("div");
-    // dropAdd.classList.add("dropAdd");
+        generalButton.disabled = true;
+        addProject.disabled = true;
+        addTodo.disabled = true;
+        projectDropdown.disabled = true;
+
+    });
     
-    // const projects = document.createElement("select");
-    // projects.classList.add("projectSelect");
-    // const noProjects = document.createElement("option");
-    // noProjects.textContent = "No Projects";
-    // projects.append(noProjects);
+    addProject.addEventListener('click', () => {
+        projectPopup.classList.add('active');
 
-    // const addButton = document.createElement("button");
-    // addButton.classList.add("addButton");
-    // addButton.textContent = "+";
+        generalButton.disabled = true;
+        addProject.disabled = true;
+        addTodo.disabled = true;
+        projectDropdown.disabled = true;
 
-    // dropAdd.append(projects);
-    // dropAdd.append(addButton);
+    });
 
-    // sideBar.append(generalTab);
-    // sideBar.append(dropAdd);
+    for (let i = 0; i < cancelButtons.length; i++) {
+        cancelButtons[i].addEventListener('click', () => {
+            todoPopup.classList.remove('active');
+            projectPopup.classList.remove('active');
+    
+            generalButton.disabled = false;
+            addProject.disabled = false;
+            addTodo.disabled = false;
+            projectDropdown.disabled = false;
+        });
+    }
 
-    // body.append(sideBar);
-    // body.append(mainSpace);
+    // todoSubmit.addEventListener('click', () => {
+    //     let title = todoTitle.value;
+    //     let description = todoDescription.value;
+    //     let dueDate = todoDueDate.value;
+    //     let priority = todoPriority.value;
+    // });
+}
 
-    // const addTodo = document.createElement("button");
-    // addTodo.classList.add("todoButton");
-    // addTodo.textContent = "Add Todo";
-    // mainSpace.append(addTodo);
-
-    // const todoArea = document.createElement("div");
-    // todoArea.classList.add("todoArea");
-    // mainSpace.appendChild(todoArea);
-
-    //Add event listeners to buttons
-
+function createTodo(title, description, dueDate, priority, project) {
+    todo = new Todo(title, description, dueDate, priority);
+    project.addTodo(todo);
 }
