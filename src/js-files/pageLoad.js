@@ -3,7 +3,6 @@ const generalButton = document.querySelector(".general");
 const addProject = document.querySelector(".addButton");
 const addTodo = document.querySelector(".todoButton");
 const cancelButtons = document.querySelectorAll(".cancel");
-// const projectSubmit = document.querySelector(".projectSubmit");
 const projectDropdown = document.querySelector(".projectSelect");
 const todoPopup = document.querySelector(".todoPopup");
 const projectPopup = document.querySelector(".projectPopup");

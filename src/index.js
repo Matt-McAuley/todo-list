@@ -23,15 +23,18 @@ todoPopup.addEventListener('submit', (e) => {
 
     let title = todoTitle.value;
     let description = todoDescription.value;
-    let dueDate = todoDueDate.value;
+    let dueDate = new Date(todoDueDate.value);
     let priority = todoPriority.value;
 
+    //Uses general for now - to be changed later
     let todo = new Todo(title, description, dueDate, priority);
     general.addTodo(todo);
 
     removePopup();
 
-    addTodoDOM(todo);
+    // addTodoDOM(todo);
+    removeAllTodos();
+    displayAllTodos(general);
 });
 
 function displayAllTodos(project) {
@@ -45,7 +48,7 @@ function displayAllTodos(project) {
 
 function removeAllTodos() {
     while (todoArea.hasChildNodes()) {
-        todoArea.removeChild();
+        todoArea.firstChild.remove();
     }
 }
 

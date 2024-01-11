@@ -18,7 +18,7 @@ class Project {
 
     addTodo(todo) {
         this.todos.push(todo);
-        this.todos.sort(function(a,b) {
+        this.todos = this.todos.sort(function(a,b) {
             return a.dueDate - b.dueDate;
         });
     }
