@@ -30,6 +30,8 @@ todoPopup.addEventListener('submit', (e) => {
     let description = todoDescription.value;
     let dueDate = new Date(todoDueDate.value);
     let priority = todoPriority.value;
+    console.log(todoDueDate.value);
+    console.log(dueDate);
 
     //Section uses general for now - to be changed later
     //Removed a todo if edited so it doesn't become doubled
@@ -70,7 +72,17 @@ function displayAllTodos(project) {
         let todo = project.todos[i];
         let todoDiv = document.createElement("div");
         todoDiv.classList.add("todo");
-        todoDiv.textContent = todo.title;
+        todoDiv.textContent = `Title: ${todo.title} | Due: ${format(todo.dueDate, "MM/dd/yyyy")}`;
+
+        if (todo.priority == "low") {
+            todoDiv.classList.add("low");
+        }
+        if (todo.priority == "medium") {
+            todoDiv.classList.add("med");
+        }
+        if (todo.priority == "high") {
+            todoDiv.classList.add("high");
+        }
         
         let editButton = document.createElement("button");
         editButton.textContent = "Edit";

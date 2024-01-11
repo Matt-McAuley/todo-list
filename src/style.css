@@ -1,14 +1,61 @@
 body {
+    padding: 0;
+    margin: 0;
     background-color: rgb(68, 68, 68);
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: 1fr 5fr;
-    width: 99vw;
-    height: 98vh;
+    grid-auto-rows: 1fr 10fr;
+    width: 100vw;
+    height: 100vh;
     overflow: hidden;
 }
 
+.fill {
+    grid-row: 1/2;
+    grid-column: 1/2;
+    background-color: rgb(34, 34, 34);
+}
+
+option {
+    color: red;
+    background-color: black;
+    font-weight: 600;
+}
+
+button, select, input, select {
+    background-color: black;
+    color: red;
+    border: 1px solid red;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+button:hover, select:hover, input:hover {
+    background-color: rgb(19, 19, 19);
+}
+
+button:disabled, select:disabled {
+    cursor: initial;
+    opacity: 50%;
+    background-color: black;
+}
+
+button:active {
+    translate: 1px 1px;
+}
+
+label {
+    color: white;
+    font-weight: 600;
+    font-size: 20px;
+}
+
 .sidebar {
+    grid-column: 1/2;
+    grid-row: 2/3;
+
     display: flex;
     flex-direction: column;
     background-color: rgb(34, 34, 34);
@@ -25,14 +72,28 @@ body {
     padding: 10px;
 }
 
-.main {
+header {
+    grid-row: 1/2;
+    grid-column: 2/3;
+
+    background-color: rgb(34, 34, 34);
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
 .todoButton {
     padding: 10px 20px;
+    font-size: 20px;
+}
+
+.main {
+    grid-row: 2/3;
+    grid-column: 2/3;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .todoPopup , .projectPopup{
@@ -66,14 +127,31 @@ label {
 }
 
 .todo {
-    background-color: brown;
-    padding: 10px 20px;
+    background-color: rgb(34, 34, 34);
+    color: white;
+    font-weight: 600;
+    padding: 20px 30px;
     margin: 5px;
     font-size: 20px;
     display: grid;
     grid-auto-flow: column;
     gap: 10px;
     align-items: center;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: black 2px 2px;
+}
+
+.todo.low {
+    background-color: rgb(36, 124, 36);
+}
+
+.todo.high {
+    background-color: rgb(153, 33, 33);
+}
+
+.todo.med {
+    background-color: rgb(202, 202, 62);
 }
 
 .editButton, .completeButton {
