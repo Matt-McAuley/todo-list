@@ -27,11 +27,11 @@ body {
 
 .main {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .todoButton {
-    align-self: start;
     padding: 10px 20px;
 }
 
@@ -40,7 +40,8 @@ body {
 }
 
 .todoPopup.active, .projectPopup.active {
-    align-self: center;
+    top: 40%;
+    left: 50%;
     position: absolute;
     border: 1px solid black;
     background-color: gray;
@@ -50,4 +51,21 @@ body {
     flex-direction: column;
     padding: 20px;
     z-index: 1;
+}
+
+label {
+    padding: 7px;
+}
+
+.todoArea {
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+.todo {
+    padding: 10px 20px;
+    margin: 5px;
 }
