@@ -2,7 +2,6 @@
 const generalButton = document.querySelector(".general");
 const addProject = document.querySelector(".addButton");
 const addTodo = document.querySelector(".todoButton");
-const cancelButtons = document.querySelectorAll(".cancel");
 const projectDropdown = document.querySelector(".projectSelect");
 const todoPopup = document.querySelector(".todoPopup");
 const projectPopup = document.querySelector(".projectPopup");
@@ -10,13 +9,7 @@ const projectPopup = document.querySelector(".projectPopup");
 function pageLoad() {
     //Add necessary event listeners
     addTodo.addEventListener('click', () => {
-        todoPopup.classList.add('active');
-
-        generalButton.disabled = true;
-        addProject.disabled = true;
-        addTodo.disabled = true;
-        projectDropdown.disabled = true;
-
+        createTodoPopup();
     });
     
     addProject.addEventListener('click', () => {
@@ -28,12 +21,15 @@ function pageLoad() {
         projectDropdown.disabled = true;
 
     });
+}
 
-    for (let i = 0; i < cancelButtons.length; i++) {
-        cancelButtons[i].addEventListener('click', () => {
-            removePopup();
-        });
-    }
+function createTodoPopup() {
+    todoPopup.classList.add('active');
+
+    generalButton.disabled = true;
+    addProject.disabled = true;
+    addTodo.disabled = true;
+    projectDropdown.disabled = true;
 }
 
 function removePopup() {
@@ -46,4 +42,4 @@ function removePopup() {
     projectDropdown.disabled = false;
 }
 
-export {pageLoad, removePopup};
+export {pageLoad, createTodoPopup, removePopup};
