@@ -28,10 +28,8 @@ todoPopup.addEventListener('submit', (e) => {
 
     let title = todoTitle.value;
     let description = todoDescription.value;
-    let dueDate = new Date(todoDueDate.value);
+    let dueDate = new Date(todoDueDate.value.replace(/-/g, '\/'));
     let priority = todoPriority.value;
-    console.log(todoDueDate.value);
-    console.log(dueDate);
 
     //Section uses general for now - to be changed later
     //Removed a todo if edited so it doesn't become doubled
