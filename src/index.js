@@ -6,7 +6,7 @@ import {format} from "date-fns";
 pageLoad();
 
 let editedTodos = [];
-let completeEdit = false;
+let editing = false;
 
 let general = new Project('General');
 
@@ -57,6 +57,8 @@ todoPopup.addEventListener('submit', (e) => {
     todoDescription.value = "";
     todoDueDate.value = "";
     todoPriority.value = "medium";
+    
+    editing = false;
 });
 
 for (let i = 0; i < cancelButtons.length; i++) {
@@ -66,6 +68,8 @@ for (let i = 0; i < cancelButtons.length; i++) {
         todoDescription.value = "";
         todoDueDate.value = "";
         todoPriority.value = "medium";
+        
+        editing = false;
 
         if (editedTodos.length > 0) {
             editedTodos.splice(0,1);
@@ -116,10 +120,11 @@ function displayAllTodos(project) {
             todoDueDate.value = format(todo.dueDate, 'yyyy-MM-dd');
             todoPriority.value = todo.priority;
             editedTodos.push(todo);
+            editing = true;
         });
 
         todoDiv.addEventListener('click', () => {
-            if (!completeEdit) {
+            if (!editing) {
                 todoExpand.classList.add('active');
                 expandTitle.textContent = "Title: " + todo.title;
                 expandDescription.textContent = "Description: " + todo.description;
