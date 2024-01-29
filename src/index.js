@@ -7,6 +7,7 @@ pageLoad();
 
 let editedTodos = [];
 let editing = false;
+let complete = false;
 
 let general = new Project('General');
 
@@ -110,6 +111,7 @@ function displayAllTodos(project) {
             project.removeTodo(todo);
             removeAllTodos();
             displayAllTodos(project);
+            complete = true;
         });
 
         editButton.addEventListener('click', () => {
@@ -124,7 +126,7 @@ function displayAllTodos(project) {
         });
 
         todoDiv.addEventListener('click', () => {
-            if (!editing) {
+            if (!editing && !complete) {
                 todoExpand.classList.add('active');
                 expandTitle.textContent = "Title: " + todo.title;
                 expandDescription.textContent = "Description: " + todo.description;
@@ -132,6 +134,7 @@ function displayAllTodos(project) {
                 expandPriority.textContent = "Priority: " + todo.priority;
                 createPopup();
             }
+            complete = false;
         });
 
         closeExpand.addEventListener('click', () => {
