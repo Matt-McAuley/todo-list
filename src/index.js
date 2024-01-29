@@ -6,6 +6,7 @@ import {format} from "date-fns";
 pageLoad();
 
 let editedTodos = [];
+let completeEdit = false;
 
 let general = new Project('General');
 
@@ -13,6 +14,13 @@ const todoArea = document.querySelector(".todoArea");
 
 const todoPopup = document.querySelector(".todoPopup");
 const projectPopup = document.querySelector(".projectPopup");
+
+const todoExpand = document.querySelector(".todoExpand");
+const expandTitle = document.querySelector("#expandTitle");
+const expandDescription = document.querySelector("#expandDescription");
+const expandDate = document.querySelector("#expandDate");
+const expandPriority = document.querySelector("#expandPriority");
+const closeExpand = document.querySelector("#closeExpand");
 
 const cancelButtons = document.querySelectorAll(".cancel");
 
@@ -108,6 +116,22 @@ function displayAllTodos(project) {
             todoDueDate.value = format(todo.dueDate, 'yyyy-MM-dd');
             todoPriority.value = todo.priority;
             editedTodos.push(todo);
+        });
+
+        todoDiv.addEventListener('click', () => {
+            if (!completeEdit) {
+                todoExpand.classList.add('active');
+                expandTitle.textContent = "Title: " + todo.title;
+                expandDescription.textContent = "Description: " + todo.description;
+                expandDate.textContent = "Due Date: " + format(todo.dueDate, "MM/dd/yyyy");
+                expandPriority.textContent = "Priority: " + todo.priority;
+                createPopup();
+            }
+        });
+
+        closeExpand.addEventListener('click', () => {
+            todoExpand.classList.remove('active');
+            removePopup();
         });
     }
 }
