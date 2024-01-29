@@ -15,7 +15,7 @@ function pageLoad() {
     
     addProject.addEventListener('click', () => {
         projectPopup.classList.add('active');
-        createPopup()
+        createPopup();
     });
 }
 

@@ -6,10 +6,16 @@ import {format} from "date-fns";
 pageLoad();
 
 let editedTodos = [];
+let projects = [];
+let projectTitles = new Object();
 let editing = false;
 let complete = false;
 
 let general = new Project('General');
+projects.push(general);
+projectTitles['General'] = general;
+let currentProject = general;
+const generalButton = document.querySelector(".general");
 
 const todoArea = document.querySelector(".todoArea");
 
@@ -31,6 +37,7 @@ const todoDueDate = document.querySelector("#dueDate");
 const todoPriority = document.querySelector("#priority");
 
 const projectTitle = document.querySelector("#projectTitle");
+const projectSelect = document.querySelector(".projectSelect");
 
 todoPopup.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -43,16 +50,16 @@ todoPopup.addEventListener('submit', (e) => {
     //Section uses general for now - to be changed later
     //Removed a todo if edited so it doesn't become doubled
     if (editedTodos.length > 0) {
-        general.removeTodo(editedTodos[0]);
+        currentProject.removeTodo(editedTodos[0]);
         editedTodos.splice(0,1);
     }
     let todo = new Todo(title, description, dueDate, priority);
-    general.addTodo(todo);
+    currentProject.addTodo(todo);
 
     removePopup();
 
     removeAllTodos();
-    displayAllTodos(general);
+    displayAllTodos(currentProject);
 
     todoTitle.value = "";
     todoDescription.value = "";
@@ -69,6 +76,7 @@ for (let i = 0; i < cancelButtons.length; i++) {
         todoDescription.value = "";
         todoDueDate.value = "";
         todoPriority.value = "medium";
+        projectTitle.value = "";
         
         editing = false;
 
@@ -149,3 +157,56 @@ function removeAllTodos() {
         todoArea.firstChild.remove();
     }
 }
+
+generalButton.addEventListener('click', () => {
+    currentProject = general;
+    removeAllTodos();
+    displayAllTodos(currentProject);
+});
+
+projectPopup.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let title = projectTitle.value;
+    if (title in projectTitles) {
+        return false;
+    }
+    currentProject = new Project(title);
+    projects.push(currentProject);
+    projectTitles[title] = currentProject;
+
+    removePopup();
+    removeAllTodos();
+    displayAllTodos(currentProject);
+    displayProjects();
+    projectSelect.value = title;
+    projectTitle.value = "";
+});
+
+function displayProjects() {
+    if (projects.length == 1) {
+        while (projectSelect.hasChildNodes()) {
+            projectSelect.firstChild.remove();
+        }
+        const noProjects = document.createElement("option");
+        noProjects.textContent = "No Projects";
+        projectSelect.append(noProjects);
+    }
+    else {
+        while (projectSelect.hasChildNodes()) {
+            projectSelect.firstChild.remove();
+        }
+        //Starts at 1 to exclude General
+        for (let i = 1; i < projects.length; i++) {
+            let projectOption = document.createElement("option");
+            projectOption.textContent = projects[i].title;
+            projectSelect.append(projectOption);
+        }
+    }
+}
+
+projectSelect.addEventListener('change', (e) => {
+    let selectedProject = e.target.value;
+    currentProject = projectTitles[selectedProject];
+    removeAllTodos();
+    displayAllTodos(currentProject);
+})
