@@ -34,7 +34,10 @@ option {
     font-weight: 600;
 }
 
-button, select, input, select {
+button,
+select,
+input,
+select {
     background-color: black;
     color: red;
     border: 1px solid red;
@@ -45,7 +48,9 @@ button, select, input, select {
     font-family: roboto;
 }
 
-button:hover, select:hover, input:hover {
+button:hover,
+select:hover,
+input:hover {
     background-color: rgb(37, 32, 32);
 }
 
@@ -57,7 +62,8 @@ button:active {
     translate: 1px 1px;
 }
 
-button:disabled, select:disabled {
+button:disabled,
+select:disabled {
     cursor: initial;
     opacity: 50%;
     background-color: black;
@@ -85,7 +91,8 @@ label {
     align-items: center;
 }
 
-.projectSelect, .general {
+.projectSelect,
+.general {
     width: 150px;
     padding: 10px 20px;
     margin: 10px;
@@ -119,11 +126,13 @@ header {
     align-items: center;
 }
 
-.todoPopup , .projectPopup{
+.todoPopup,
+.projectPopup {
     display: none;
 }
 
-.todoPopup.active, .projectPopup.active {
+.todoPopup.active,
+.projectPopup.active {
     top: 40%;
     left: 50%;
     position: absolute;
@@ -176,17 +185,21 @@ label {
     background-color: rgb(202, 202, 62);
 }
 
-.editButton, .completeButton {
+.editButton,
+.completeButton {
     padding: 10px;
 }
 
-.todoPopupButtons, .projectPopupButtons {
+.todoPopupButtons,
+.projectPopupButtons {
     padding: 10px;
     display: flex;
     justify-content: space-between;
 }
 
-.todoSubmit, .projectSubmit, .cancel {
+.todoSubmit,
+.projectSubmit,
+.cancel {
     font-size: 15px;
     padding: 5px 8px;
 }
@@ -210,11 +223,11 @@ label {
     font-size: 30px;
 }
 
-.todoExpand > div {
+.todoExpand>div {
     padding: 5px;
 }
 
-.todoExpand > button {
+.todoExpand>button {
     padding: 5px 10px;
     margin-top: 8px;
 }

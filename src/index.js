@@ -1,7 +1,7 @@
 import { Todo, Project } from "./js-files/classes";
-import {pageLoad, createPopup, removePopup} from "./js-files/pageLoad";
+import { pageLoad, createPopup, removePopup } from "./js-files/pageLoad";
 import './style.css';
-import {format} from "date-fns";
+import { format } from "date-fns";
 
 pageLoad();
 
@@ -51,7 +51,7 @@ todoPopup.addEventListener('submit', (e) => {
     //Removed a todo if edited so it doesn't become doubled
     if (editedTodos.length > 0) {
         currentProject.removeTodo(editedTodos[0]);
-        editedTodos.splice(0,1);
+        editedTodos.splice(0, 1);
     }
     let todo = new Todo(title, description, dueDate, priority);
     currentProject.addTodo(todo);
@@ -65,7 +65,7 @@ todoPopup.addEventListener('submit', (e) => {
     todoDescription.value = "";
     todoDueDate.value = "";
     todoPriority.value = "medium";
-    
+
     editing = false;
 });
 
@@ -77,11 +77,11 @@ for (let i = 0; i < cancelButtons.length; i++) {
         todoDueDate.value = "";
         todoPriority.value = "medium";
         projectTitle.value = "";
-        
+
         editing = false;
 
         if (editedTodos.length > 0) {
-            editedTodos.splice(0,1);
+            editedTodos.splice(0, 1);
         }
     });
 }
@@ -102,12 +102,12 @@ function displayAllTodos(project) {
         if (todo.priority == "high") {
             todoDiv.classList.add("high");
         }
-        
+
         let editButton = document.createElement("button");
         editButton.textContent = "Edit";
         editButton.classList.add('editButton');
         todoDiv.append(editButton);
-        
+
         let completeButton = document.createElement("button");
         completeButton.textContent = "Complete";
         completeButton.classList.add('completeButton');
@@ -210,3 +210,11 @@ projectSelect.addEventListener('change', (e) => {
     removeAllTodos();
     displayAllTodos(currentProject);
 })
+
+projectSelect.addEventListener('click', (e) => {
+    if (projects.length == 2) {
+    currentProject = projectTitles[e.target.firstChild.textContent];
+    removeAllTodos();
+    displayAllTodos(currentProject);
+    } 
+});
