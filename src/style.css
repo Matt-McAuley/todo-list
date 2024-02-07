@@ -98,8 +98,9 @@ label {
     margin: 10px;
 }
 
-.addButton {
+.projectButton {
     padding: 10px;
+    margin: 5px;
 }
 
 header {

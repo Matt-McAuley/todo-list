@@ -21,6 +21,7 @@ const todoArea = document.querySelector(".todoArea");
 
 const todoPopup = document.querySelector(".todoPopup");
 const projectPopup = document.querySelector(".projectPopup");
+const delProject = document.querySelector("#delete")
 
 const todoExpand = document.querySelector(".todoExpand");
 const expandTitle = document.querySelector("#expandTitle");
@@ -213,8 +214,19 @@ projectSelect.addEventListener('change', (e) => {
 
 projectSelect.addEventListener('click', (e) => {
     if (projects.length == 2) {
-    currentProject = projectTitles[e.target.firstChild.textContent];
-    removeAllTodos();
-    displayAllTodos(currentProject);
-    } 
+        currentProject = projectTitles[e.target.firstChild.textContent];
+        removeAllTodos();
+        displayAllTodos(currentProject);
+    }
 });
+
+delProject.addEventListener('click', () => {
+    if (projects.length > 1 && currentProject != general) {
+        projects.splice(projects.indexOf(currentProject), 1)
+        delete projectTitles[currentProject.title]
+        displayProjects();
+        removeAllTodos();
+        currentProject = general;
+        displayAllTodos(currentProject);
+    }
+})

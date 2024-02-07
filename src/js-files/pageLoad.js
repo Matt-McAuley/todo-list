@@ -1,6 +1,7 @@
 //Gather all buttons/form items
 const generalButton = document.querySelector(".general");
-const addProject = document.querySelector(".addButton");
+const addProject = document.querySelector("#add");
+const delProject = document.querySelector("#delete")
 const addTodo = document.querySelector(".todoButton");
 const projectDropdown = document.querySelector(".projectSelect");
 const todoPopup = document.querySelector(".todoPopup");
@@ -24,6 +25,7 @@ function createPopup() {
     addProject.disabled = true;
     addTodo.disabled = true;
     projectDropdown.disabled = true;
+    delProject.disabled = true;
 
     const editButtons = document.querySelectorAll('.editButton');
     const completeButtons = document.querySelectorAll('.completeButton');
@@ -45,6 +47,7 @@ function removePopup() {
 
     generalButton.disabled = false;
     addProject.disabled = false;
+    delProject.disabled = false;
     addTodo.disabled = false;
     projectDropdown.disabled = false;
 
