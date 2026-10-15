@@ -8,10 +8,9 @@ API as well as webpack and npm for project management.
 
 ![Screenshot](./src/images/SS.png)
 
-#URL
+# URL
 https://matt-mcauley.github.io/todo-list
 
 # Author
-Matthew McAuley  
-mwm223@cornell.edu  
-https://github.com/matt-mcauley/etch-a-sketch  
+[Matt McAuley](https://mattmcauley.com) | Software Engineer | Cornell Computer Science  
+mwm223@cornell.edu
